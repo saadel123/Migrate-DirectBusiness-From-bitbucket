@@ -1,0 +1,635 @@
+--------------------------------------------------------
+--  File created - Monday-June-14-2021   
+--------------------------------------------------------
+--------------------------------------------------------
+--  DDL for Sequence BLOG_SQ
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "MINE"."BLOG_SQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 1 CACHE 20 NOORDER  NOCYCLE ;
+--------------------------------------------------------
+--  DDL for Sequence CATEGORIE_SQ
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "MINE"."CATEGORIE_SQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 41 CACHE 20 NOORDER  NOCYCLE ;
+--------------------------------------------------------
+--  DDL for Sequence CLIENT_SQ
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "MINE"."CLIENT_SQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 121 CACHE 20 NOORDER  NOCYCLE ;
+--------------------------------------------------------
+--  DDL for Sequence CLIENT_WS
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "MINE"."CLIENT_WS"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 101 CACHE 20 NOORDER  NOCYCLE ;
+--------------------------------------------------------
+--  DDL for Sequence IMAGE_SQ
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "MINE"."IMAGE_SQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 241 CACHE 20 NOORDER  NOCYCLE ;
+--------------------------------------------------------
+--  DDL for Sequence PRODUIT_SQ
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "MINE"."PRODUIT_SQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 241 CACHE 20 NOORDER  NOCYCLE ;
+--------------------------------------------------------
+--  DDL for Sequence PROMOTION_SQ
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "MINE"."PROMOTION_SQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 21 CACHE 20 NOORDER  NOCYCLE ;
+--------------------------------------------------------
+--  DDL for Sequence SEQ_AD
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "MINE"."SEQ_AD"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 181 CACHE 20 NOORDER  NOCYCLE ;
+--------------------------------------------------------
+--  DDL for Sequence SEQ_BLOG
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "MINE"."SEQ_BLOG"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 41 CACHE 20 NOORDER  NOCYCLE ;
+--------------------------------------------------------
+--  DDL for Sequence SEQ_CMD
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "MINE"."SEQ_CMD"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 181 CACHE 20 NOORDER  NOCYCLE ;
+--------------------------------------------------------
+--  DDL for Sequence SEQ_EXP
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "MINE"."SEQ_EXP"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 81 CACHE 20 NOORDER  NOCYCLE ;
+--------------------------------------------------------
+--  DDL for Sequence SEQ_LC
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "MINE"."SEQ_LC"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 161 CACHE 20 NOORDER  NOCYCLE ;
+--------------------------------------------------------
+--  DDL for Sequence SEQ_PRD
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "MINE"."SEQ_PRD"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 100 CACHE 20 NOORDER  NOCYCLE ;
+--------------------------------------------------------
+--  DDL for Table ADRESSE
+--------------------------------------------------------
+
+  CREATE TABLE "MINE"."ADRESSE" 
+   (	"IDA" NUMBER(8,0), 
+	"ADRESSE" VARCHAR2(100 BYTE), 
+	"VILLE" VARCHAR2(50 BYTE), 
+	"CODEPOSTALE" NUMBER(6,0), 
+	"PAYS" VARCHAR2(50 BYTE), 
+	"IDC" NUMBER(8,0)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  DDL for Table BLOG
+--------------------------------------------------------
+
+  CREATE TABLE "MINE"."BLOG" 
+   (	"IDB" NUMBER(10,0), 
+	"TITRE" VARCHAR2(150 BYTE), 
+	"TEXT" VARCHAR2(4000 BYTE), 
+	"IMG" VARCHAR2(255 BYTE), 
+	"DATEPUB" DATE
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  DDL for Table CATEGORIE
+--------------------------------------------------------
+
+  CREATE TABLE "MINE"."CATEGORIE" 
+   (	"IDCAT" NUMBER(10,0), 
+	"LIBELLE" VARCHAR2(30 BYTE), 
+	"DESCRIPTION" VARCHAR2(200 BYTE)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  DDL for Table CLIENT
+--------------------------------------------------------
+
+  CREATE TABLE "MINE"."CLIENT" 
+   (	"IDC" NUMBER(10,0), 
+	"NOM" VARCHAR2(255 BYTE), 
+	"PRENOM" VARCHAR2(255 BYTE), 
+	"EMAIL" VARCHAR2(50 BYTE), 
+	"TEL" VARCHAR2(30 BYTE), 
+	"REGDATE" DATE, 
+	"LOGIN" VARCHAR2(50 BYTE)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  DDL for Table COMMANDE
+--------------------------------------------------------
+
+  CREATE TABLE "MINE"."COMMANDE" 
+   (	"IDCMD" NUMBER(10,0), 
+	"IDC" NUMBER(10,0), 
+	"DATECMD" DATE, 
+	"METHODE_PAY" VARCHAR2(30 BYTE), 
+	"ETAT" VARCHAR2(30 BYTE), 
+	"IDA" NUMBER(8,0)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  DDL for Table COMMENTAIRE
+--------------------------------------------------------
+
+  CREATE TABLE "MINE"."COMMENTAIRE" 
+   (	"IDCOMM" NUMBER(10,0), 
+	"IDP" NUMBER(10,0), 
+	"IDCMD" NUMBER(8,0), 
+	"COMMENTAIRE" VARCHAR2(255 BYTE), 
+	"DATE_PUB" DATE, 
+	"REVIEW" NUMBER(1,0)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  DDL for Table COMPTE
+--------------------------------------------------------
+
+  CREATE TABLE "MINE"."COMPTE" 
+   (	"LOGIN" VARCHAR2(50 BYTE), 
+	"MDP" VARCHAR2(50 BYTE), 
+	"ROLE" VARCHAR2(50 BYTE), 
+	"QUESTION" VARCHAR2(255 BYTE), 
+	"REPONSE" VARCHAR2(255 BYTE), 
+	"DATE_CREATION" DATE
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  DDL for Table EXPEDITION
+--------------------------------------------------------
+
+  CREATE TABLE "MINE"."EXPEDITION" 
+   (	"IDEX" NUMBER(8,0), 
+	"MOYEN_EXPEDITION" VARCHAR2(100 BYTE), 
+	"NUMERO_SUIVI" VARCHAR2(100 BYTE), 
+	"IDCMD" NUMBER(10,0), 
+	"ETAT" VARCHAR2(100 BYTE)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  DDL for Table IMAGE
+--------------------------------------------------------
+
+  CREATE TABLE "MINE"."IMAGE" 
+   (	"IDIMG" NUMBER(8,0), 
+	"URL" VARCHAR2(200 BYTE), 
+	"URL2" VARCHAR2(200 BYTE), 
+	"ISPRINCIPAL" NUMBER(1,0), 
+	"IDP" NUMBER(8,0)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  DDL for Table ITEMWISHLIST
+--------------------------------------------------------
+
+  CREATE TABLE "MINE"."ITEMWISHLIST" 
+   (	"IDW" NUMBER(8,0), 
+	"IDP" NUMBER(8,0)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  DDL for Table LIGNECOMMANDE
+--------------------------------------------------------
+
+  CREATE TABLE "MINE"."LIGNECOMMANDE" 
+   (	"IDLC" NUMBER(8,0), 
+	"IDCMD" NUMBER(8,0), 
+	"IDP" NUMBER(8,0), 
+	"QTE" NUMBER(8,0), 
+	"PRIX_ACHAT" NUMBER(10,2)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  DDL for Table PRODUIT
+--------------------------------------------------------
+
+  CREATE TABLE "MINE"."PRODUIT" 
+   (	"IDP" NUMBER(10,0), 
+	"IDCAT" NUMBER(10,0), 
+	"LIBELLE" VARCHAR2(255 BYTE), 
+	"MARQUE" VARCHAR2(255 BYTE), 
+	"PRIX" NUMBER(12,2), 
+	"DESCRIPTION" VARCHAR2(1255 BYTE), 
+	"FRAISEXPEDITION" NUMBER(12,2), 
+	"DISPONIBILITE" NUMBER(1,0), 
+	"QTESTCK" NUMBER(4,0), 
+	"DATE_PUB" DATE
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  DDL for Table PROMOTION
+--------------------------------------------------------
+
+  CREATE TABLE "MINE"."PROMOTION" 
+   (	"IDPROM" NUMBER(8,0), 
+	"IDP" NUMBER(8,0), 
+	"DATE_DEBUT" DATE, 
+	"DATE_FIN" DATE, 
+	"TAUX" NUMBER(2,0)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  DDL for Table PUBLICITE
+--------------------------------------------------------
+
+  CREATE TABLE "MINE"."PUBLICITE" 
+   (	"IDPUB" NUMBER(10,0), 
+	"IMAGE" VARCHAR2(250 BYTE)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  DDL for Table WISHLIST
+--------------------------------------------------------
+
+  CREATE TABLE "MINE"."WISHLIST" 
+   (	"IDW" NUMBER(10,0), 
+	"IDC" NUMBER(10,0), 
+	"LIBELLE" VARCHAR2(30 BYTE)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+REM INSERTING into MINE.ADRESSE
+SET DEFINE OFF;
+Insert into MINE.ADRESSE (IDA,ADRESSE,VILLE,CODEPOSTALE,PAYS,IDC) values (8050,'Casablanca lissasfa 3 bloc c rue 9 num 191','Casablanca',20190,'Morocco',1);
+Insert into MINE.ADRESSE (IDA,ADRESSE,VILLE,CODEPOSTALE,PAYS,IDC) values (6050,'Casablanca lissasfa 3 bloc c rue 9 num 191','Casablanca',20190,'Morocco',4050);
+Insert into MINE.ADRESSE (IDA,ADRESSE,VILLE,CODEPOSTALE,PAYS,IDC) values (7050,'Casablanca','Casablanca',20190,'Morocco',1);
+Insert into MINE.ADRESSE (IDA,ADRESSE,VILLE,CODEPOSTALE,PAYS,IDC) values (53,'Casablanca lissasfa 3 ','Casablanca',20190,'Morocco',1);
+Insert into MINE.ADRESSE (IDA,ADRESSE,VILLE,CODEPOSTALE,PAYS,IDC) values (54,'Casablanca lissasfa 3 bloc ','Casablanca',20190,'Morocco',1);
+Insert into MINE.ADRESSE (IDA,ADRESSE,VILLE,CODEPOSTALE,PAYS,IDC) values (57,'Casablanca lissasfa 3 bloc c rue 9 ','Casablanca',20190,'Morocco',1);
+Insert into MINE.ADRESSE (IDA,ADRESSE,VILLE,CODEPOSTALE,PAYS,IDC) values (58,'Casablanca lissasfa 3 bloc c rue 9 ','Casablanca',20190,'Morocco',1);
+REM INSERTING into MINE.BLOG
+SET DEFINE OFF;
+Insert into MINE.BLOG (IDB,TITRE,TEXT,IMG,DATEPUB) values (4,'LABORE ET DOLORE MAGNA SLIQUA UT ENIM AD MINIM VENIAM','enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse','blog-post-img-01.jpg',to_date('06-JUN-21','DD-MON-RR'));
+Insert into MINE.BLOG (IDB,TITRE,TEXT,IMG,DATEPUB) values (5,'INCIDIDUNT UT LABORE ET DOLORE','Laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse..Laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse.','blog-post-img-02.jpg',to_date('06-JUN-21','DD-MON-RR'));
+Insert into MINE.BLOG (IDB,TITRE,TEXT,IMG,DATEPUB) values (2,'DOLORE MAGNA SLIQUA UT ENIM AD MINIM VENIAM','Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse.quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse.','blog-post-img-03.jpg',to_date('06-JUN-21','DD-MON-RR'));
+Insert into MINE.BLOG (IDB,TITRE,TEXT,IMG,DATEPUB) values (3,'LABORE ET DOLORE MAGNA SLIQUA UT ENIM AD MINIM VENIAM','enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse','blog-post-img-05.jpg',to_date('06-JUN-21','DD-MON-RR'));
+Insert into MINE.BLOG (IDB,TITRE,TEXT,IMG,DATEPUB) values (6,'Nostrud exercitation ullamco laboris ','Dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse.','blog-post-img-04.jpg',to_date('06-JUN-21','DD-MON-RR'));
+Insert into MINE.BLOG (IDB,TITRE,TEXT,IMG,DATEPUB) values (21,'Magna aliqua. Ut enim ad minim veniam','quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit ess Dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate','blog-post-img-08.jpg',to_date('07-JUN-21','DD-MON-RR'));
+Insert into MINE.BLOG (IDB,TITRE,TEXT,IMG,DATEPUB) values (22,'Ex ea commodo consequat. Duis',' laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse. Dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse.
+
+','blog-post-img-06.jpg',to_date('07-JUN-21','DD-MON-RR'));
+REM INSERTING into MINE.CATEGORIE
+SET DEFINE OFF;
+Insert into MINE.CATEGORIE (IDCAT,LIBELLE,DESCRIPTION) values (21,'Hoodie','Les vetements de sport sont des vetements');
+Insert into MINE.CATEGORIE (IDCAT,LIBELLE,DESCRIPTION) values (22,'Shirts','Vetements Homme de marques pour tous les gouts');
+Insert into MINE.CATEGORIE (IDCAT,LIBELLE,DESCRIPTION) values (23,'Dresses','Vetements Femme de marques pour tous les gouts');
+Insert into MINE.CATEGORIE (IDCAT,LIBELLE,DESCRIPTION) values (24,'Hats','HOUSEHOLDS description');
+Insert into MINE.CATEGORIE (IDCAT,LIBELLE,DESCRIPTION) values (25,'Jackets and Outerwear','INTERIORS description');
+Insert into MINE.CATEGORIE (IDCAT,LIBELLE,DESCRIPTION) values (26,'Shoes','Shoes description');
+Insert into MINE.CATEGORIE (IDCAT,LIBELLE,DESCRIPTION) values (27,'Pants','Pants description');
+Insert into MINE.CATEGORIE (IDCAT,LIBELLE,DESCRIPTION) values (28,'Bags','BAGS description');
+Insert into MINE.CATEGORIE (IDCAT,LIBELLE,DESCRIPTION) values (29,'Jeans','PRODUCT CATEGORIES');
+Insert into MINE.CATEGORIE (IDCAT,LIBELLE,DESCRIPTION) values (30,'Skirts','PRODUCT CATEGORIES');
+Insert into MINE.CATEGORIE (IDCAT,LIBELLE,DESCRIPTION) values (31,'sunglasses','PRODUCT CATEGORIES');
+REM INSERTING into MINE.CLIENT
+SET DEFINE OFF;
+Insert into MINE.CLIENT (IDC,NOM,PRENOM,EMAIL,TEL,REGDATE,LOGIN) values (1,'ELghanemy','Saad','elghanemysaad@gmail.com','0600570107',to_date('18-MAR-21','DD-MON-RR'),'elghanemysaad@gmail.com');
+Insert into MINE.CLIENT (IDC,NOM,PRENOM,EMAIL,TEL,REGDATE,LOGIN) values (2,'Amine','Saber','aminesaber@gmail.com','0600342332',to_date('18-MAR-21','DD-MON-RR'),'aminesaber@gmail.com');
+Insert into MINE.CLIENT (IDC,NOM,PRENOM,EMAIL,TEL,REGDATE,LOGIN) values (1050,'nome1','Jensenso','Jensenso@oregonstate.edu',null,to_date('19-MAR-21','DD-MON-RR'),'Jensenso@oregonstate.edu');
+Insert into MINE.CLIENT (IDC,NOM,PRENOM,EMAIL,TEL,REGDATE,LOGIN) values (2050,'abdo','saber','abdo.saber@gmail.com',null,to_date('23-MAR-21','DD-MON-RR'),'abdo.saber@gmail.com');
+Insert into MINE.CLIENT (IDC,NOM,PRENOM,EMAIL,TEL,REGDATE,LOGIN) values (4050,'hamza','saber','hamza.saber@gmail.com',null,to_date('16-MAY-21','DD-MON-RR'),'hamza.saber@gmail.com');
+Insert into MINE.CLIENT (IDC,NOM,PRENOM,EMAIL,TEL,REGDATE,LOGIN) values (5050,'legend','saitama','legendsaitama@gmail.com',null,to_date('09-JUN-21','DD-MON-RR'),'legendsaitama@gmail.com');
+REM INSERTING into MINE.COMMANDE
+SET DEFINE OFF;
+Insert into MINE.COMMANDE (IDCMD,IDC,DATECMD,METHODE_PAY,ETAT,IDA) values (7050,1,to_date('01-JUN-21','DD-MON-RR'),'VISA','expedie',7050);
+Insert into MINE.COMMANDE (IDCMD,IDC,DATECMD,METHODE_PAY,ETAT,IDA) values (8050,1,to_date('14-JUN-21','DD-MON-RR'),'VISA','en cours',8050);
+Insert into MINE.COMMANDE (IDCMD,IDC,DATECMD,METHODE_PAY,ETAT,IDA) values (53,1,to_date('31-MAR-21','DD-MON-RR'),'VISA','expedie',53);
+Insert into MINE.COMMANDE (IDCMD,IDC,DATECMD,METHODE_PAY,ETAT,IDA) values (54,1,to_date('31-MAR-21','DD-MON-RR'),'VISA','expedie',54);
+Insert into MINE.COMMANDE (IDCMD,IDC,DATECMD,METHODE_PAY,ETAT,IDA) values (57,1,to_date('31-MAR-21','DD-MON-RR'),'VISA','en cours',57);
+Insert into MINE.COMMANDE (IDCMD,IDC,DATECMD,METHODE_PAY,ETAT,IDA) values (58,1,to_date('31-MAR-21','DD-MON-RR'),'VISA','en cours',58);
+REM INSERTING into MINE.COMMENTAIRE
+SET DEFINE OFF;
+REM INSERTING into MINE.COMPTE
+SET DEFINE OFF;
+Insert into MINE.COMPTE (LOGIN,MDP,ROLE,QUESTION,REPONSE,DATE_CREATION) values ('elghanemysaad@gmail.com','123456','Admin','Quel a ‚t‚ votre premier animal de compagnie?','chat',to_date('18-MAR-21','DD-MON-RR'));
+Insert into MINE.COMPTE (LOGIN,MDP,ROLE,QUESTION,REPONSE,DATE_CREATION) values ('aminesaber@gmail.com','123456','client','Quel a ‚t‚ votre premier animal de compagnie?','chien',to_date('18-MAR-21','DD-MON-RR'));
+Insert into MINE.COMPTE (LOGIN,MDP,ROLE,QUESTION,REPONSE,DATE_CREATION) values ('Jensenso@oregonstate.edu','123456','client',null,null,null);
+Insert into MINE.COMPTE (LOGIN,MDP,ROLE,QUESTION,REPONSE,DATE_CREATION) values ('abdo.saber@gmail.com','123456','client',null,null,null);
+Insert into MINE.COMPTE (LOGIN,MDP,ROLE,QUESTION,REPONSE,DATE_CREATION) values ('hamza.saber@gmail.com','123456','client',null,null,null);
+Insert into MINE.COMPTE (LOGIN,MDP,ROLE,QUESTION,REPONSE,DATE_CREATION) values ('legendsaitama@gmail.com','123456','client',null,null,null);
+REM INSERTING into MINE.EXPEDITION
+SET DEFINE OFF;
+Insert into MINE.EXPEDITION (IDEX,MOYEN_EXPEDITION,NUMERO_SUIVI,IDCMD,ETAT) values (1053,'amana','MA53453423',53,'expedie');
+Insert into MINE.EXPEDITION (IDEX,MOYEN_EXPEDITION,NUMERO_SUIVI,IDCMD,ETAT) values (1054,'amana','MA53453423',53,'expedie');
+Insert into MINE.EXPEDITION (IDEX,MOYEN_EXPEDITION,NUMERO_SUIVI,IDCMD,ETAT) values (1052,'amana','MA53453423',53,'expedie');
+Insert into MINE.EXPEDITION (IDEX,MOYEN_EXPEDITION,NUMERO_SUIVI,IDCMD,ETAT) values (1055,'amana','MA53453423',53,'expedie');
+Insert into MINE.EXPEDITION (IDEX,MOYEN_EXPEDITION,NUMERO_SUIVI,IDCMD,ETAT) values (1056,'amana','MA53453423',53,'expedie');
+Insert into MINE.EXPEDITION (IDEX,MOYEN_EXPEDITION,NUMERO_SUIVI,IDCMD,ETAT) values (2050,'Amana','35346523',54,'expedie');
+Insert into MINE.EXPEDITION (IDEX,MOYEN_EXPEDITION,NUMERO_SUIVI,IDCMD,ETAT) values (3050,'amana','34546456',7050,'expedie');
+REM INSERTING into MINE.IMAGE
+SET DEFINE OFF;
+Insert into MINE.IMAGE (IDIMG,URL,URL2,ISPRINCIPAL,IDP) values (1,'product-01.jpg','product-01-02.jpg',1,5);
+Insert into MINE.IMAGE (IDIMG,URL,URL2,ISPRINCIPAL,IDP) values (2,'product-33.jpg','product-33-01.jpg',1,6);
+Insert into MINE.IMAGE (IDIMG,URL,URL2,ISPRINCIPAL,IDP) values (3,'product-05-02.jpg','product-05.jpg',1,7);
+Insert into MINE.IMAGE (IDIMG,URL,URL2,ISPRINCIPAL,IDP) values (4,'product-22.jpg','product-22-02.jpg',1,8);
+Insert into MINE.IMAGE (IDIMG,URL,URL2,ISPRINCIPAL,IDP) values (21,'product-15.jpg','product-15-01.jpg',1,21);
+Insert into MINE.IMAGE (IDIMG,URL,URL2,ISPRINCIPAL,IDP) values (5,'product-14.jpg','product-14-01.jpg',1,9);
+Insert into MINE.IMAGE (IDIMG,URL,URL2,ISPRINCIPAL,IDP) values (6,'product-02.jpg','product-02-02.jpg',1,10);
+Insert into MINE.IMAGE (IDIMG,URL,URL2,ISPRINCIPAL,IDP) values (7,'product-41-01.jpg','product-41.jpg',1,11);
+Insert into MINE.IMAGE (IDIMG,URL,URL2,ISPRINCIPAL,IDP) values (8,'product-03.jpg','product-03-02.jpg',1,12);
+Insert into MINE.IMAGE (IDIMG,URL,URL2,ISPRINCIPAL,IDP) values (9,'product-08-02.jpg','product-08.jpg',1,13);
+Insert into MINE.IMAGE (IDIMG,URL,URL2,ISPRINCIPAL,IDP) values (10,'product-45.jpg','product-45-01.jpg',1,14);
+Insert into MINE.IMAGE (IDIMG,URL,URL2,ISPRINCIPAL,IDP) values (11,'product-43-03.jpg','product-43.jpg',1,15);
+Insert into MINE.IMAGE (IDIMG,URL,URL2,ISPRINCIPAL,IDP) values (11052,'product-16.jpg','product-16-01.jpg',1,15);
+Insert into MINE.IMAGE (IDIMG,URL,URL2,ISPRINCIPAL,IDP) values (11050,'product-16.jpg','product-16-01.jpg',1,11050);
+Insert into MINE.IMAGE (IDIMG,URL,URL2,ISPRINCIPAL,IDP) values (11051,'product-16-01.jpg','product-16.jpg',1,11050);
+REM INSERTING into MINE.ITEMWISHLIST
+SET DEFINE OFF;
+Insert into MINE.ITEMWISHLIST (IDW,IDP) values (1,6);
+REM INSERTING into MINE.LIGNECOMMANDE
+SET DEFINE OFF;
+Insert into MINE.LIGNECOMMANDE (IDLC,IDCMD,IDP,QTE,PRIX_ACHAT) values (7051,8050,9,1,40);
+Insert into MINE.LIGNECOMMANDE (IDLC,IDCMD,IDP,QTE,PRIX_ACHAT) values (6050,7050,14,1,35);
+Insert into MINE.LIGNECOMMANDE (IDLC,IDCMD,IDP,QTE,PRIX_ACHAT) values (7050,8050,6,1,100);
+Insert into MINE.LIGNECOMMANDE (IDLC,IDCMD,IDP,QTE,PRIX_ACHAT) values (53,53,15,1,25);
+Insert into MINE.LIGNECOMMANDE (IDLC,IDCMD,IDP,QTE,PRIX_ACHAT) values (54,54,12,2,30);
+Insert into MINE.LIGNECOMMANDE (IDLC,IDCMD,IDP,QTE,PRIX_ACHAT) values (7052,8050,15,1,40);
+Insert into MINE.LIGNECOMMANDE (IDLC,IDCMD,IDP,QTE,PRIX_ACHAT) values (57,57,14,1,35);
+Insert into MINE.LIGNECOMMANDE (IDLC,IDCMD,IDP,QTE,PRIX_ACHAT) values (58,58,14,1,35);
+REM INSERTING into MINE.PRODUIT
+SET DEFINE OFF;
+Insert into MINE.PRODUIT (IDP,IDCAT,LIBELLE,MARQUE,PRIX,DESCRIPTION,FRAISEXPEDITION,DISPONIBILITE,QTESTCK,DATE_PUB) values (5,21,'Cotton Blend Fleece Hoodie','polo',29,'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod',5,1,40,to_date('19-MAR-21','DD-MON-RR'));
+Insert into MINE.PRODUIT (IDP,IDCAT,LIBELLE,MARQUE,PRIX,DESCRIPTION,FRAISEXPEDITION,DISPONIBILITE,QTESTCK,DATE_PUB) values (6,23,'Flared Shift Dress','polo',100,'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod',10,1,15,to_date('19-MAR-21','DD-MON-RR'));
+Insert into MINE.PRODUIT (IDP,IDCAT,LIBELLE,MARQUE,PRIX,DESCRIPTION,FRAISEXPEDITION,DISPONIBILITE,QTESTCK,DATE_PUB) values (7,22,'Easy Polo blue Edition','polo',70,'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod',6,1,10,to_date('19-MAR-21','DD-MON-RR'));
+Insert into MINE.PRODUIT (IDP,IDCAT,LIBELLE,MARQUE,PRIX,DESCRIPTION,FRAISEXPEDITION,DISPONIBILITE,QTESTCK,DATE_PUB) values (8,22,'Easy Polo white Edition','polo',60,'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod',10,1,30,to_date('19-MAR-21','DD-MON-RR'));
+Insert into MINE.PRODUIT (IDP,IDCAT,LIBELLE,MARQUE,PRIX,DESCRIPTION,FRAISEXPEDITION,DISPONIBILITE,QTESTCK,DATE_PUB) values (21,24,'The championships wimbledon','GAP',20,'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod',5,1,10,to_date('22-MAR-21','DD-MON-RR'));
+Insert into MINE.PRODUIT (IDP,IDCAT,LIBELLE,MARQUE,PRIX,DESCRIPTION,FRAISEXPEDITION,DISPONIBILITE,QTESTCK,DATE_PUB) values (9,23,'Satin Ruffle Wrap Midi Dress','GAP',40,'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod',10,1,5,to_date('22-MAR-21','DD-MON-RR'));
+Insert into MINE.PRODUIT (IDP,IDCAT,LIBELLE,MARQUE,PRIX,DESCRIPTION,FRAISEXPEDITION,DISPONIBILITE,QTESTCK,DATE_PUB) values (10,28,'Hand bag ','Gucci',500,'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod',20,1,4,to_date('22-MAR-21','DD-MON-RR'));
+Insert into MINE.PRODUIT (IDP,IDCAT,LIBELLE,MARQUE,PRIX,DESCRIPTION,FRAISEXPEDITION,DISPONIBILITE,QTESTCK,DATE_PUB) values (11,21,'Fleece Hoodie Blue','polo',39,'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod',10,1,40,to_date('22-MAR-21','DD-MON-RR'));
+Insert into MINE.PRODUIT (IDP,IDCAT,LIBELLE,MARQUE,PRIX,DESCRIPTION,FRAISEXPEDITION,DISPONIBILITE,QTESTCK,DATE_PUB) values (12,29,'Jean Blue Skinny fit','levis',30,'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod',5,1,10,to_date('26-MAR-21','DD-MON-RR'));
+Insert into MINE.PRODUIT (IDP,IDCAT,LIBELLE,MARQUE,PRIX,DESCRIPTION,FRAISEXPEDITION,DISPONIBILITE,QTESTCK,DATE_PUB) values (13,25,'White jacket','Bershka',30,'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod',10,1,4,to_date('26-MAR-21','DD-MON-RR'));
+Insert into MINE.PRODUIT (IDP,IDCAT,LIBELLE,MARQUE,PRIX,DESCRIPTION,FRAISEXPEDITION,DISPONIBILITE,QTESTCK,DATE_PUB) values (14,26,'Blue Sneaker Polo','polo',35,'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod',5,1,10,to_date('26-MAR-21','DD-MON-RR'));
+Insert into MINE.PRODUIT (IDP,IDCAT,LIBELLE,MARQUE,PRIX,DESCRIPTION,FRAISEXPEDITION,DISPONIBILITE,QTESTCK,DATE_PUB) values (15,22,'Polo blue T-shirt','polo',40,'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod',10,0,11,to_date('05-JUN-21','DD-MON-RR'));
+Insert into MINE.PRODUIT (IDP,IDCAT,LIBELLE,MARQUE,PRIX,DESCRIPTION,FRAISEXPEDITION,DISPONIBILITE,QTESTCK,DATE_PUB) values (11050,22,'MidifiedBysaad','polo',50,'lore test ',5,0,4,to_date('05-JUN-21','DD-MON-RR'));
+REM INSERTING into MINE.PROMOTION
+SET DEFINE OFF;
+Insert into MINE.PROMOTION (IDPROM,IDP,DATE_DEBUT,DATE_FIN,TAUX) values (1,5,to_date('19-MAR-21','DD-MON-RR'),to_date('18-MAY-21','DD-MON-RR'),20);
+Insert into MINE.PROMOTION (IDPROM,IDP,DATE_DEBUT,DATE_FIN,TAUX) values (2,6,to_date('19-MAR-21','DD-MON-RR'),to_date('08-MAY-21','DD-MON-RR'),45);
+REM INSERTING into MINE.PUBLICITE
+SET DEFINE OFF;
+REM INSERTING into MINE.WISHLIST
+SET DEFINE OFF;
+Insert into MINE.WISHLIST (IDW,IDC,LIBELLE) values (1,1,'Cotton Blend Fleece Hoodie');
+Insert into MINE.WISHLIST (IDW,IDC,LIBELLE) values (1203,1,null);
+Insert into MINE.WISHLIST (IDW,IDC,LIBELLE) values (2050,1,null);
+Insert into MINE.WISHLIST (IDW,IDC,LIBELLE) values (3050,1,null);
+Insert into MINE.WISHLIST (IDW,IDC,LIBELLE) values (3051,1,null);
+Insert into MINE.WISHLIST (IDW,IDC,LIBELLE) values (4050,1,null);
+Insert into MINE.WISHLIST (IDW,IDC,LIBELLE) values (1201,1,null);
+Insert into MINE.WISHLIST (IDW,IDC,LIBELLE) values (1202,1,null);
+--------------------------------------------------------
+--  Constraints for Table PUBLICITE
+--------------------------------------------------------
+
+  ALTER TABLE "MINE"."PUBLICITE" ADD PRIMARY KEY ("IDPUB")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM"  ENABLE;
+--------------------------------------------------------
+--  Constraints for Table IMAGE
+--------------------------------------------------------
+
+  ALTER TABLE "MINE"."IMAGE" ADD PRIMARY KEY ("IDIMG")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM"  ENABLE;
+  ALTER TABLE "MINE"."IMAGE" ADD CHECK (isprincipal in (0,1)) ENABLE;
+--------------------------------------------------------
+--  Constraints for Table EXPEDITION
+--------------------------------------------------------
+
+  ALTER TABLE "MINE"."EXPEDITION" ADD PRIMARY KEY ("IDEX")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM"  ENABLE;
+--------------------------------------------------------
+--  Constraints for Table PROMOTION
+--------------------------------------------------------
+
+  ALTER TABLE "MINE"."PROMOTION" ADD PRIMARY KEY ("IDPROM")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM"  ENABLE;
+--------------------------------------------------------
+--  Constraints for Table WISHLIST
+--------------------------------------------------------
+
+  ALTER TABLE "MINE"."WISHLIST" ADD PRIMARY KEY ("IDW")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM"  ENABLE;
+--------------------------------------------------------
+--  Constraints for Table COMMENTAIRE
+--------------------------------------------------------
+
+  ALTER TABLE "MINE"."COMMENTAIRE" ADD PRIMARY KEY ("IDCOMM")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM"  ENABLE;
+  ALTER TABLE "MINE"."COMMENTAIRE" ADD CHECK (review in(1,2,3,4,5)) ENABLE;
+--------------------------------------------------------
+--  Constraints for Table ITEMWISHLIST
+--------------------------------------------------------
+
+  ALTER TABLE "MINE"."ITEMWISHLIST" ADD PRIMARY KEY ("IDW", "IDP")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM"  ENABLE;
+--------------------------------------------------------
+--  Constraints for Table ADRESSE
+--------------------------------------------------------
+
+  ALTER TABLE "MINE"."ADRESSE" ADD PRIMARY KEY ("IDA")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM"  ENABLE;
+--------------------------------------------------------
+--  Constraints for Table BLOG
+--------------------------------------------------------
+
+  ALTER TABLE "MINE"."BLOG" ADD PRIMARY KEY ("IDB")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM"  ENABLE;
+--------------------------------------------------------
+--  Constraints for Table CLIENT
+--------------------------------------------------------
+
+  ALTER TABLE "MINE"."CLIENT" ADD PRIMARY KEY ("IDC")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM"  ENABLE;
+--------------------------------------------------------
+--  Constraints for Table LIGNECOMMANDE
+--------------------------------------------------------
+
+  ALTER TABLE "MINE"."LIGNECOMMANDE" ADD PRIMARY KEY ("IDLC")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM"  ENABLE;
+--------------------------------------------------------
+--  Constraints for Table COMMANDE
+--------------------------------------------------------
+
+  ALTER TABLE "MINE"."COMMANDE" ADD PRIMARY KEY ("IDCMD")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM"  ENABLE;
+--------------------------------------------------------
+--  Constraints for Table PRODUIT
+--------------------------------------------------------
+
+  ALTER TABLE "MINE"."PRODUIT" ADD PRIMARY KEY ("IDP")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM"  ENABLE;
+  ALTER TABLE "MINE"."PRODUIT" ADD CHECK (disponibilite in (0,1)) ENABLE;
+--------------------------------------------------------
+--  Constraints for Table COMPTE
+--------------------------------------------------------
+
+  ALTER TABLE "MINE"."COMPTE" ADD PRIMARY KEY ("LOGIN")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM"  ENABLE;
+--------------------------------------------------------
+--  Constraints for Table CATEGORIE
+--------------------------------------------------------
+
+  ALTER TABLE "MINE"."CATEGORIE" ADD PRIMARY KEY ("IDCAT")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM"  ENABLE;
+--------------------------------------------------------
+--  Ref Constraints for Table ADRESSE
+--------------------------------------------------------
+
+  ALTER TABLE "MINE"."ADRESSE" ADD FOREIGN KEY ("IDC")
+	  REFERENCES "MINE"."CLIENT" ("IDC") ENABLE;
+--------------------------------------------------------
+--  Ref Constraints for Table CLIENT
+--------------------------------------------------------
+
+  ALTER TABLE "MINE"."CLIENT" ADD FOREIGN KEY ("LOGIN")
+	  REFERENCES "MINE"."COMPTE" ("LOGIN") ENABLE;
+--------------------------------------------------------
+--  Ref Constraints for Table COMMANDE
+--------------------------------------------------------
+
+  ALTER TABLE "MINE"."COMMANDE" ADD FOREIGN KEY ("IDA")
+	  REFERENCES "MINE"."ADRESSE" ("IDA") ENABLE;
+  ALTER TABLE "MINE"."COMMANDE" ADD FOREIGN KEY ("IDC")
+	  REFERENCES "MINE"."CLIENT" ("IDC") ENABLE;
+--------------------------------------------------------
+--  Ref Constraints for Table COMMENTAIRE
+--------------------------------------------------------
+
+  ALTER TABLE "MINE"."COMMENTAIRE" ADD FOREIGN KEY ("IDCMD")
+	  REFERENCES "MINE"."COMMANDE" ("IDCMD") ENABLE;
+  ALTER TABLE "MINE"."COMMENTAIRE" ADD FOREIGN KEY ("IDP")
+	  REFERENCES "MINE"."PRODUIT" ("IDP") ENABLE;
+--------------------------------------------------------
+--  Ref Constraints for Table EXPEDITION
+--------------------------------------------------------
+
+  ALTER TABLE "MINE"."EXPEDITION" ADD FOREIGN KEY ("IDCMD")
+	  REFERENCES "MINE"."COMMANDE" ("IDCMD") ENABLE;
+--------------------------------------------------------
+--  Ref Constraints for Table IMAGE
+--------------------------------------------------------
+
+  ALTER TABLE "MINE"."IMAGE" ADD FOREIGN KEY ("IDP")
+	  REFERENCES "MINE"."PRODUIT" ("IDP") ENABLE;
+--------------------------------------------------------
+--  Ref Constraints for Table ITEMWISHLIST
+--------------------------------------------------------
+
+  ALTER TABLE "MINE"."ITEMWISHLIST" ADD FOREIGN KEY ("IDW")
+	  REFERENCES "MINE"."WISHLIST" ("IDW") ENABLE;
+  ALTER TABLE "MINE"."ITEMWISHLIST" ADD FOREIGN KEY ("IDP")
+	  REFERENCES "MINE"."PRODUIT" ("IDP") ENABLE;
+--------------------------------------------------------
+--  Ref Constraints for Table LIGNECOMMANDE
+--------------------------------------------------------
+
+  ALTER TABLE "MINE"."LIGNECOMMANDE" ADD FOREIGN KEY ("IDCMD")
+	  REFERENCES "MINE"."COMMANDE" ("IDCMD") ENABLE;
+  ALTER TABLE "MINE"."LIGNECOMMANDE" ADD FOREIGN KEY ("IDP")
+	  REFERENCES "MINE"."PRODUIT" ("IDP") ENABLE;
+--------------------------------------------------------
+--  Ref Constraints for Table PRODUIT
+--------------------------------------------------------
+
+  ALTER TABLE "MINE"."PRODUIT" ADD FOREIGN KEY ("IDCAT")
+	  REFERENCES "MINE"."CATEGORIE" ("IDCAT") ENABLE;
+--------------------------------------------------------
+--  Ref Constraints for Table PROMOTION
+--------------------------------------------------------
+
+  ALTER TABLE "MINE"."PROMOTION" ADD FOREIGN KEY ("IDP")
+	  REFERENCES "MINE"."PRODUIT" ("IDP") ENABLE;
+--------------------------------------------------------
+--  Ref Constraints for Table WISHLIST
+--------------------------------------------------------
+
+  ALTER TABLE "MINE"."WISHLIST" ADD FOREIGN KEY ("IDC")
+	  REFERENCES "MINE"."CLIENT" ("IDC") ENABLE;
